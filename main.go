@@ -21,7 +21,6 @@ func main() {
   }
 
   log.Printf("Successful connection to %v on the #%v channel\n", *server, *channel)
-
   messages := client.NewPhilote()
 
   go func() {
@@ -33,7 +32,7 @@ func main() {
 
   reader := bufio.NewReader(os.Stdin)
   for {
-    text, err := reader.ReadString('>'); if err != nil {
+    text, err := reader.ReadString('\n'); if err != nil {
       log.Fatal(err)
     }
 
