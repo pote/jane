@@ -19,9 +19,15 @@ install: bin/jane
 	install -d $(prefix)/bin
 	install -m 0755 bin/jane /usr/local/bin
 
+cross-compile: clean pkg
+	script/cross-compile
+
+clean:
+	rm -rf pkg/
+
 ##
 # Directories
 ##
 
-$(dir $(PROGNAME)) $(dir $(DEPS)) bin:
+$(dir $(PROGNAME)) $(dir $(DEPS)) bin pkg:
 	mkdir -p $@
