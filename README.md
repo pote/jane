@@ -17,6 +17,10 @@ Usage of jane:
     	Auth token, if you want to use a specific one
 ```
 
+## Sample
+
+![sample](https://stuff.pote.io/Screen-Recording-2017-05-16-15-50-30-5ivJp0cbze.gif)
+
 ## Install
 
 A Homebrew package is in the works, but for now you'll need to either [install from source](#install-from-source) or head over to the [releases](https://github.com/pote/jane/releases) page and download a precompiled binary.
