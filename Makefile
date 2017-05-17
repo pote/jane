@@ -12,6 +12,13 @@ $(DEPS): Godeps | $(dir $(DEPS))
 	$(GPM) get
 	touch $@
 
+config.mk:
+	@./configure
+
+install: bin/jane
+	install -d $(prefix)/bin
+	install -m 0755 bin/jane /usr/local/bin
+
 ##
 # Directories
 ##
