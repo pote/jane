@@ -3,7 +3,6 @@ DEPS = $(firstword $(subst :, ,$(GOPATH)))/up-to-date
 GPM ?= gpm
 
 all: bin/jane
-	./bin/jane
 
 bin/jane:  bin $(SOURCES) $(DEPS) | $(dir $(PROGNAME))
 	go build -o bin/jane
