@@ -19,8 +19,20 @@ func main() {
   channel := flag.String("c", "test", "channel you want to connect to")
   token := flag.String("t", "", "Auth token, if you want to use a specific one")
   info := flag.Bool("info", false, "If passed, queries Philote for running info and exits")
+  secure := flag.Bool("secure", false, "Will use wss and https instead of ws and http")
+
 
   flag.Parse()
+
+  var wsSchema, httpSchema string
+  if *secure {
+    wsSchema = "wss://"
+    httpSchema = "https://"
+  } else {
+    wsSchema = "ws://"
+    httpSchema = "http://"
+  }
+
 
   auth := *token; if auth == "" {
     var err error
@@ -30,7 +42,7 @@ func main() {
   }
 
   if *info {
-    request, err := http.NewRequest("GET", "http://" + *server + "/api/info", nil); if err != nil {
+    request, err := http.NewRequest("GET", httpSchema + *server + "/api/info", nil); if err != nil {
       log.Fatal(err)
     }
 
@@ -52,7 +64,7 @@ func main() {
     os.Exit(0)
   }
 
-  client, err := philote.NewClient("ws://" + *server, auth); if err != nil {
+  client, err := philote.NewClient(wsSchema + *server, auth); if err != nil {
     log.Fatal(err)
   }
 
