@@ -5,25 +5,31 @@ Jane is a command line client for the [Philote](https://github.com/pote/philote)
 ## Basic usage
 
 ```bash
-$ jane --help
+$ jane -help
 Usage of jane:
   -c string
     	channel you want to connect to (default "test")
+  -info
+    	If passed, queries Philote for running info and exits
   -p string
-    	Philote server (default "ws://localhost:6380")
+    	Philote server (default "localhost:6380")
   -s string
     	Philote server's JWT secret used for authentication.
+  -secure
+    	Will use wss and https instead of ws and http
   -t string
     	Auth token, if you want to use a specific one
 ```
 
-## Sample
+### Homebrew
 
-![sample](https://stuff.pote.io/Screen-Recording-2017-05-16-15-50-30-5ivJp0cbze.gif)
+```bash
+$ brew install pote/philote/jane
+```
 
-## Install
+### Precompiled binaries
 
-A Homebrew package is in the works, but for now you'll need to either [install from source](#install-from-source) or head over to the [releases](https://github.com/pote/jane/releases) page and download a precompiled binary.
+You can find precompiled binaries for your platform of choice in the [latest release](https://github.com/pote/jane/releases) page.
 
 ### Install from source
 
